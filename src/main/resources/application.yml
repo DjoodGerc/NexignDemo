@@ -1,0 +1,23 @@
+worker.pool: 3
+kafka.server: localhost:9092
+kafka.group.id: server.broadcast
+kafka.producer.id: server.broadcast
+spring.application.name: nexignTestCase
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+spring:
+  liquibase:
+    enabled: true
+    change-log: db/changelog/db.changelog-master.yaml
+    default-schema: public
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/nexignTestCase"
+    username: postgres
+    password: 2709
+  jpa:
+    hibernate:
+      ddl-auto: none
