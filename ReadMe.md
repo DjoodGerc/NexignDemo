@@ -28,6 +28,8 @@ check_time TIMESTAMP NOT NULL,
 status_id INTEGER,
 FOREIGN KEY (status_id) REFERENCES status(id) ON DELETE CASCADE
 );
+
+
 INSERT INTO status (id, name) VALUES
 (0, 'Not Started'),
 (1, 'In Progress'),
