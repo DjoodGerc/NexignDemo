@@ -14,12 +14,24 @@ java {
 	}
 }
 
-//configurations {
-//
-//	compileOnly {
-//		annotationProcessor
-//	}
-//}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.example.demo.NexignTestCaseApplication'
+        )
+    }
+}
+compileJava {
+    options.compilerArgs = [
+            '-Amapstruct.defaultComponentModel=spring'
+    ]
+}
+configurations {
+
+	compileOnly {
+		annotationProcessor
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -46,21 +58,18 @@ dependencies {
 
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
-    implementation 'org.mapstruct:mapstruct-processor:1.5.3.Final'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
-    testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'org.slf4j:slf4j-api:2.0.16'
-    compileOnly 'org.projectlombok:lombok:1.18.36'
-    implementation 'org.projectlombok:lombok:1.18.22'
+
     testImplementation 'org.slf4j:slf4j-log4j12:2.0.16'
 //    implementation 'org.bndly.common:org.bndly.common.converter:1.0.3'
     implementation 'top.jfunc.common:converter:1.8.0'
-    implementation 'org.mapstruct:mapstruct-processor:1.6.3'
-    implementation 'org.mapstruct:mapstruct:1.6.3'
-    implementation 'org.mapstruct:mapstruct-jdk8:1.6.3'
-    implementation 'org.mapstruct:mapstruct-parent:1.6.3'
+    compileOnly "org.projectlombok:lombok:1.6.3"
+    compileOnly "org.mapstruct:mapstruct:1.6.3"
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.6.3"
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    implementation 'org.projectlombok:lombok:1.18.22'
 //    implementation 'org.springframework.data:spring-data-jpa:3.4.0'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
     implementation 'org.liquibase:liquibase-core:4.30.0'
